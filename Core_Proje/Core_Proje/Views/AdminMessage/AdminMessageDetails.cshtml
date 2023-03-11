@@ -1,0 +1,46 @@
+﻿@model EntityLayer.Concrete.WriterMessage
+
+@{
+    ViewData["Title"] = "ContactDetails";
+    Layout = "~/Views/Shared/_NewAdminLayout.cshtml";
+}
+
+<div class="col-12 grid-margin stretch-card">
+    <div class="card">
+        <div class="card-body">
+            <p class="card-description"> Nesaj Detay Sayfası </p>
+            <form class="forms-sample">
+                <div class="form-group">
+                    <label>ID</label>
+                    <input asp-for="WirterMessageID" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label>Konu</label>
+                    <input asp-for="Subject" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label>Gönderen</label>
+                    <input asp-for="SenderName" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label>Alıcı</label>
+                    <input asp-for="ReceiverName" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label>Tarih</label>
+                    @Html.TextBoxFor(x => x.Date, new { @class = "form-control" })
+                </div>
+                <div class="form-group">
+                    <label>Mesaj</label>
+                    <textarea asp-for="MessageContent" class="form-control" rows="6"></textarea>
+                </div>
+                <a asp-action="ReceiverMessageList" class="btn btn-primary mr-2">Admin Gelen Mesajlar</a>
+                <a asp-action="SenderMessageList" class="btn btn-warning mr-2">Admin Giden Mesajlar</a>
+            </form>
+        </div>
+    </div>
+</div>
+<div>
+    <a asp-action="Index">Listeye Dön</a>
+</div>
+

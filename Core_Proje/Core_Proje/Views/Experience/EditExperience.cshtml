@@ -1,0 +1,40 @@
+﻿@model EntityLayer.Concrete.Experience
+
+@{
+    ViewData["Title"] = "EditExperience";
+    Layout = "~/Views/Shared/_NewAdminLayout.cshtml";
+}
+
+<div class="col-12 grid-margin stretch-card">
+    <div class="card">
+        <div class="card-body">
+            <p class="card-description"> Deneyim Güncelleme Paneli </p>
+            <form class="forms-sample" method="post">
+                <input type="hidden" asp-for="ExperienceID" />
+                <input type="hidden" asp-for="ImageUrl" />
+                <div class="form-group">
+                    <label>Başlık</label>
+                    <input asp-for="Name" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label>Pozisyon / Çalışma Tarihi</label>
+                    @Html.TextBoxFor(x=> x.Date, new { @class = "form-control"})   @*Bu da HTML türünde input içerisine bilgi alma!!*@
+                </div>
+                <div class="form-group">
+                    <label>Görsel URL</label>
+                    <input asp-for="ImageUrl" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label>Açıklama</label>
+                    <textarea asp-for="Description" class="form-control" rows="6"></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary mr-2">Kaydet</button>
+                <button class="btn btn-dark">İptal</button>
+            </form>
+        </div>
+    </div>
+</div>
+<div>
+    <a asp-action="Index">Listeye Dön</a>
+</div>
+
